@@ -3335,11 +3335,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kunje\\Desktop\\ASP.NET-FinalAssignment\\MakeMyTripTravelPlan\\MakeMyTripTravelPlan\\MakeMyTripTravelPlan.csproj",
+      "projectUniqueName": "C:\\Users\\kunje\\Desktop\\Project\\MakeMyTripTravelPlan\\MakeMyTripTravelPlan\\MakeMyTripTravelPlan.csproj",
       "projectName": "MakeMyTripTravelPlan",
-      "projectPath": "C:\\Users\\kunje\\Desktop\\ASP.NET-FinalAssignment\\MakeMyTripTravelPlan\\MakeMyTripTravelPlan\\MakeMyTripTravelPlan.csproj",
+      "projectPath": "C:\\Users\\kunje\\Desktop\\Project\\MakeMyTripTravelPlan\\MakeMyTripTravelPlan\\MakeMyTripTravelPlan.csproj",
       "packagesPath": "C:\\Users\\kunje\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kunje\\Desktop\\ASP.NET-FinalAssignment\\MakeMyTripTravelPlan\\MakeMyTripTravelPlan\\obj\\",
+      "outputPath": "C:\\Users\\kunje\\Desktop\\Project\\MakeMyTripTravelPlan\\MakeMyTripTravelPlan\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\kunje\\AppData\\Roaming\\NuGet\\NuGet.Config",

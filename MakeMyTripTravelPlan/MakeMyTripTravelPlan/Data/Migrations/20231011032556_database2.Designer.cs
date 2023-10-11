@@ -4,6 +4,7 @@ using MakeMyTripTravelPlan.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MakeMyTripTravelPlan.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231011032556_database2")]
+    partial class database2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,6 +24,61 @@ namespace MakeMyTripTravelPlan.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("MakeMyTripTravelPlan.Models.AirlineService", b =>
+                {
+                    b.Property<int>("AirlineSeriveId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AirlineSeriveId"));
+
+                    b.Property<string>("Avaialable")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("AirlineSeriveId");
+
+                    b.ToTable("AirlineServices");
+                });
+
+            modelBuilder.Entity("MakeMyTripTravelPlan.Models.Flight", b =>
+                {
+                    b.Property<string>("FlightDeatil")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("AirlineServiceId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("AirlineServicesAirlineSeriveId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("FlightDeatil");
+
+                    b.HasIndex("AirlineServicesAirlineSeriveId");
+
+                    b.ToTable("Flights");
+                });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
@@ -224,6 +282,15 @@ namespace MakeMyTripTravelPlan.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("MakeMyTripTravelPlan.Models.Flight", b =>
+                {
+                    b.HasOne("MakeMyTripTravelPlan.Models.AirlineService", "AirlineServices")
+                        .WithMany("Flights")
+                        .HasForeignKey("AirlineServicesAirlineSeriveId");
+
+                    b.Navigation("AirlineServices");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -273,6 +340,11 @@ namespace MakeMyTripTravelPlan.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("MakeMyTripTravelPlan.Models.AirlineService", b =>
+                {
+                    b.Navigation("Flights");
                 });
 #pragma warning restore 612, 618
         }

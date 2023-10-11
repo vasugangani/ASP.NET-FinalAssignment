@@ -5,9 +5,9 @@ namespace MakeMyTripTravelPlan.Models
 {
     public class Flight
     {
-        [Required]
 
 
+        [Key]
         public string FlightDeatil { get; set; }
         [Required]
 
@@ -23,7 +23,7 @@ namespace MakeMyTripTravelPlan.Models
         public string AirlineServiceId { get; set; }
 
         // Parent Reference - connection to 1 airline
-        public AirlineService? AirlineService { get; set; }
+        public AirlineService? AirlineServices { get; set; }
 
     }
 }

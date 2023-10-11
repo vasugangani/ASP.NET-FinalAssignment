@@ -4,8 +4,7 @@ namespace MakeMyTripTravelPlan.Models
 {
     public class AirlineService
     {
-        [Required]
-
+        [Key]
         public int AirlineSeriveId { get; set; }
 
         [Required]
